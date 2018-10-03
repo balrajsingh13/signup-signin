@@ -1,0 +1,22 @@
+<p>
+  admin-panel works!
+</p>
+<button (click)="logout()">LOGOUT</button>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>UserID</th>
+    <th>Email</th>
+    <th>CreatedDate</th>
+    <th>UpdatedDate</th>
+    <th>Lastlogged</th>
+  </thead>
+  <tr *ngFor="let d of data">
+    <td>{{d.name}}</td>
+    <td>{{d.userID}}</td>
+    <td>{{d.email}}</td>
+    <td>{{d.createdDate}}</td>
+    <td>{{d.updatedDate}}</td>
+    <td>{{d.lastLogged}}</td>
+  </tr>
+</table>

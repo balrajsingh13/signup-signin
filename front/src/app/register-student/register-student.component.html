@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<div class="content_area">
+  <div class="heading">
+    <h1>Register Yourself</h1>
+  </div>
+  <div class="form">
+    <form [formGroup]="RegistrationForm" (ngSubmit)="onSubmit()" id="contact">
+      <div class="lhs">
+        <div class="row-left">
+          <input class="textbox" #ref type="text" name="name" placeholder="Name*" formControlName="name"
+          />
+          <span class="error" *ngIf="RegistrationForm.controls['name'].touched && !RegistrationForm.controls['name'].valid && RegistrationForm.controls['name'].dirty">Invalid Name </span>
+        </div>
+
+        <div class="row-left">
+            <input class="textbox" [type]="type" name="password" placeholder="Password*" formControlName="password" />
+            <i (mouseup)="hide()" (mousedown) ="show()" class="fas fa-eye"></i>
+            <span class="error" *ngIf="RegistrationForm.controls['password'].touched && RegistrationForm.controls.password.invalid && RegistrationForm.controls['password'].dirty">Invalid Password</span>
+        </div>
+  
+      </div>
+
+      <div class="rhs">
+        <div class="row-right">
+          <input class="textbox" type="text" name="email" placeholder="Email Address*" formControlName="email" />
+          <span class="error" *ngIf="RegistrationForm.controls['email'].touched && !RegistrationForm.controls['email'].valid && RegistrationForm.controls['email'].dirty">Invalid email</span>
+        </div>
+        <div class="row-right">
+          <input class="textbox" type="text" name="userID" placeholder="User Id*" formControlName="userID" />
+          <span class="error" *ngIf="RegistrationForm.controls['userID'].touched && !RegistrationForm.controls['userID'].valid && RegistrationForm.controls['userID'].dirty">Invalid employee id</span>
+        </div>
+      </div>
+      <div>
+        <button type="submit" [disabled]="!RegistrationForm.valid" id="submit">Submit</button>
+      </div>
+      <p>{{err}}</p>
+    </form>
+  </div>
+</div>

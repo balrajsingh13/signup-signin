@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<div class="content_area">
+  <div class="heading">
+    <h1>Login</h1>
+  </div>
+  <div class="form">
+    <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" id="contact">
+      <div class="container">
+        <div class="row-right">
+          <input class="textbox" type="text" name="emailOrUserID" [(ngModel)]="emailOrUserID" placeholder="Email Address / UserID*" formControlName="emailOrUserID" />
+          {{emailOrUserID}}
+          <span class="error" *ngIf="LoginForm.controls['emailOrUserID'].touched && !LoginForm.controls['emailOrUserID'].valid && LoginForm.controls['emailOrUserID'].dirty">Invalid email</span>
+        </div>
+        <div class="row-left">
+          <input class="textbox" type="password" name="password" placeholder="Password" formControlName="password" />
+          <i (mouseup)="hide()" (mousedown) ="show()" class="fas fa-eye"></i>
+          <span class="error" *ngIf="LoginForm.controls['password'].touched && LoginForm.controls.password.invalid && LoginForm.controls['password'].dirty">Invalid Password</span>
+        </div>
+        <!-- <div>
+          <input type="checkbox" name="remember" formControlName="remember">
+        </div> -->
+      </div>
+      <div>
+        <button type="submit" [disabled]="!LoginForm.valid" id="submit">Submit</button>
+      </div>
+    </form>
+    <div>
+        <button type="button" id="register" (click)="register()">Sign up</button>
+    </div>
+    <div>
+       
+        <button type="button" id="register" (onclick)="forgotPassword()">Forgot Password</button>
+    </div>
+  </div>
+</div>
